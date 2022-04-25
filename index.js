@@ -4,14 +4,17 @@ const mongoose = require('mongoose')
 
 const teacherRouter = require('./routes/teacher.routes')
 
+// database mongoDb connection
 mongoose.connect('mongodb://localhost:27017/teacher')
     .then(()=> console.log('MongoDb connected'))
     .catch(err => console.error('database not connected'))
+
 app.use(express.json())
 app.use((req,res,next)=>{
     console.log('I am middleware');
     next()
 })
+// connecting router
 app.use('/home',teacherRouter)
 
 app.use((req,res)=>{
