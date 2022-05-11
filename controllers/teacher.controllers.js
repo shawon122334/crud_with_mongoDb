@@ -29,7 +29,8 @@ const getSingleTeacher = async (req, res)=>{
     const id = req.params.id
     try{
         const teacher = await Teacher.findById(id)
-        return res.status(200).send(teacher)
+        if(teacher) return res.status(200).send(teacher)
+        return res.status(500).send('Not found')
     }
     catch(err){
         return res.status(500).send({
