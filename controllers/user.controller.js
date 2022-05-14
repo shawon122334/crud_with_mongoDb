@@ -37,6 +37,15 @@ const createNewUser = async(req,res)=>{
     }
 
 }
+const logInUser = async(req,res)=>{
+    let user = await User.findOne({email: req.body.email}) 
+    if(!user) return res.status(404).send('User not found')  
+
+    const validUser = await bcrypt.compare(req.body.password,user.password) 
+    if(!validUser) return res.status(404).send('Invalid email or password') 
+    else return res.status(200).send('success')
+}
 module.exports = {
-    createNewUser
+    createNewUser,
+    logInUser
 }

@@ -1,0 +1,5 @@
+1. basic crud operation 
+2. create user's model , user's controller, route and save user's data in database (sign up)
+3. jwt : 
+        - session based : 
+        - token based : when user is authenticated user gets a token and save it.
