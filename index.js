@@ -1,10 +1,10 @@
 require("dotenv").config(); // require dotenv and put all environments in env
 const express = require("express");
-const morgan = require("morgan");
 const app = express();
 const mongoose = require("mongoose");
-
+const morgan = require("morgan");
 const teacherRouter = require("./routes/teacher.routes");
+const userRouter = require("./routes/user.routes");
 
 // database mongoDb connection
 mongoose
@@ -24,12 +24,12 @@ if (process.env.NODE_ENV === "development") {
 }
 
 // connecting router
-app.use("/home", teacherRouter);
-
+app.use('/home', teacherRouter);
+app.use('/user',userRouter);     
 app.use((req, res) => {
   return res.status(404).send("not found");
 });
-// to access env we made, we use a package which is dotenv
+// to access variables we created in env, we use a package which is dotenv
 const port = process.env.PORT || 8080;
 app.listen(port, () => {
   console.log(`server is listening on ${port}`);
