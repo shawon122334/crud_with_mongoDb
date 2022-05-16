@@ -1,3 +1,4 @@
+const jwt = require('jsonwebtoken')
 const {Schema,model} = require('mongoose')
 
 const userSchema = Schema ({ 
@@ -22,6 +23,12 @@ const userSchema = Schema ({
         maxLength: 1024
     }
 })
+// mongoose schema method
+userSchema.methods.generateJWT = function(){
+    const token = jwt.sign({_id: this._id,email: this.email},process.env.JWT_SECRET_KEY);
+    return token;
+}
+// now if we use this jwt token in user, it takes users id and email and create a token
 
 const User = model('User',userSchema)
 module.exports.User = User

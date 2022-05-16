@@ -20,7 +20,11 @@ const createNewUser = async(req,res)=>{
     // now we store our user to db
     try{
         const result = await user.save()
+        // token will be created after user is created
+        const token = user.generateJWT();
+
         return res.send({
+            token,
             data : {
                 userName : result.userName,
                 email : result.email 
@@ -43,7 +47,10 @@ const logInUser = async(req,res)=>{
 
     const validUser = await bcrypt.compare(req.body.password,user.password) 
     if(!validUser) return res.status(404).send('Invalid email or password') 
-    else return res.status(200).send('success')
+    
+    // create token when user is valid 
+    const token = user.generateJWT();
+    return res.status(200).send({token})
 }
 module.exports = {
     createNewUser,

@@ -3,3 +3,8 @@
 3. jwt : 
         - session based : 
         - token based : when user is authenticated user gets a token and save it.
+        
+
+        -whenever new user / user object is created token should be generated
+        - to generate we use a package named jsonwebtoken
+        - we can generate token in model 
