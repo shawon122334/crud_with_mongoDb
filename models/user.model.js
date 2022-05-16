@@ -24,6 +24,7 @@ const userSchema = Schema ({
     }
 })
 // mongoose schema method
+// create token
 userSchema.methods.generateJWT = function(){
     const token = jwt.sign({_id: this._id,email: this.email},process.env.JWT_SECRET_KEY);
     return token;
