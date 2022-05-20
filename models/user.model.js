@@ -24,6 +24,8 @@ const userSchema = Schema ({
     }
 })
 // mongoose schema method
+// we can generate token in model
+// whenever new user or object is created , token generates 
 // create token
 userSchema.methods.generateJWT = function(){
     const token = jwt.sign({_id: this._id,email: this.email},process.env.JWT_SECRET_KEY);

@@ -8,7 +8,7 @@ const createNewUser = async(req,res)=>{
     // we use JOI to validate easily
     //validation must be done before creating new user
     user = new User({
-        userName : req.body.userName,
+         userName : req.body.userName,
         email: req.body.email,
         password : req.body.password
     })
@@ -45,7 +45,7 @@ const logInUser = async(req,res)=>{
     let user = await User.findOne({email: req.body.email}) 
     if(!user) return res.status(404).send('User not found')  
 
-    const validUser = await bcrypt.compare(req.body.password,user.password) 
+    const validUser = await bcrypt.compare(req.body.password,user.password) // returns a boolean, true/false
     if(!validUser) return res.status(404).send('Invalid email or password') 
     
     // create token when user is valid 
@@ -55,4 +55,4 @@ const logInUser = async(req,res)=>{
 module.exports = {
     createNewUser,
     logInUser
-}
+}  

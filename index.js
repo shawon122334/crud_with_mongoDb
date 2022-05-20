@@ -11,7 +11,7 @@ mongoose
   .connect(process.env.DB_URL)
   .then(() => console.log("MongoDb connected"))
   .catch((err) => console.error("database not connected"));
-
+ 
 app.use(express.json());
 app.use((req, res, next) => {
   console.log("I am middleware");

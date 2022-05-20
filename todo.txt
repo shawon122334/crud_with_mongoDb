@@ -7,7 +7,7 @@
         
 
         -whenever new user / user object is created token should be generated
-        - to generate we use a package named jsonwebtoken
+        - to generate we use a package named jsonwebtoken (we use jwt from jsonwebtoken)
         - we can generate token in model 
         - for password security we use bcrypt package 
 
