@@ -5,12 +5,23 @@
         - session based : 
         - token based : when user is authenticated user gets a token and save it.
         
+        - authentication : 
+                          -  sign up (createUser controller)
+                          -  login 
+                          -> token generated for both 
 
-        -whenever new user / user object is created token should be generated
-        - to generate we use a package named jsonwebtoken (we use jwt from jsonwebtoken)
-        - we can generate token in model 
-        - for password security we use bcrypt package 
+                        -----------------------------------------------------------
+                        -whenever new user / user object is created token should be generated
+                        - to generate we use a package named jsonwebtoken (we use jwt from jsonwebtoken)
+                        - we can generate token in model 
+                        - for password security we use bcrypt package 
 
 
-        - create token function created in user model 
-        - register user and log in user finished, token generated for both
+                        - create token function created in user model so that it could used many times 
+                        - register user and log in user finished, token generated for both
+                        -------------------------------------------------------------
+        - authorization : 
+                         - now user is authenticated and has token 
+                         - we need two middleware (to authorize a request)
+                         - we create autorize.js 
+                         - 
