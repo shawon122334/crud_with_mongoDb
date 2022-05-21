@@ -24,4 +24,4 @@
                          - now user is authenticated and has token 
                          - we need two middleware (to authorize a request)
                          - we create autorize.js 
-                         - 
+                         -  

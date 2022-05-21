@@ -27,3 +27,6 @@ module.exports = function(req,res,next){
 
 // now lets send a request and see if its working.lets say, user can see teachers data without authorization but if user creates a teacher , authorization requires 
 // we import this middleware in student router 
+
+
+// eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Mjg5MzEwZWQ0ZWI3MDJlYTI2MTUxYTYiLCJlbWFpbCI6InNoYXdvbkB5YWhvby5jb20iLCJyb2xlIjoidXNlciIsImlhdCI6MTY1MzE1ODE1OH0.H35sTdZyGAkA0oV2fpoz81wfj2FuKExsZDqmwKJqV54

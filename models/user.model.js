@@ -21,6 +21,11 @@ const userSchema = Schema ({
         required : true,
         minLength : 6,
         maxLength: 1024
+    },
+    role:{
+        type: String,
+        enum : ['user','admin'],
+        default : 'user',
     }
 })
 // mongoose schema method
@@ -28,7 +33,7 @@ const userSchema = Schema ({
 // whenever new user or object is created , token generates 
 // create token
 userSchema.methods.generateJWT = function(){
-    const token = jwt.sign({_id: this._id,email: this.email},process.env.JWT_SECRET_KEY);
+    const token = jwt.sign({_id: this._id,email: this.email,role : this.role},process.env.JWT_SECRET_KEY);
     return token;
 }
 // now if we use this jwt token in user, it takes users id and email and create a token
