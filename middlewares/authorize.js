@@ -8,6 +8,7 @@ module.exports = function(req,res,next){
     // token format(key value pair) : "Authorization": "Bearer <token>" 
     // how does front end know how are we accepting token? follow documentation
 
+    //first we take the token from header
     let token = req.header('Authorization');
     if(!token) return res.status(401).send('Access denied.No token provided')
     token = token.split(" ")[1].trim() // getting <token>
@@ -26,7 +27,7 @@ module.exports = function(req,res,next){
 }
 
 // now lets send a request and see if its working.lets say, user can see teachers data without authorization but if user creates a teacher , authorization requires 
-// we import this middleware in student router 
+// we import this middleware in teacher router 
 
 
 // eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Mjg5MzEwZWQ0ZWI3MDJlYTI2MTUxYTYiLCJlbWFpbCI6InNoYXdvbkB5YWhvby5jb20iLCJyb2xlIjoidXNlciIsImlhdCI6MTY1MzE1ODE1OH0.H35sTdZyGAkA0oV2fpoz81wfj2FuKExsZDqmwKJqV54

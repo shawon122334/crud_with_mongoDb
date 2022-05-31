@@ -5,7 +5,7 @@ const authorize = require('../middlewares/authorize')
 const admin = require('../middlewares/admin')
 
 teacherRouter.route('/')
-    .post([authorize],createTeacher)  // array is not mandatory 
+    .post([authorize],createTeacher)  // array is not mandatory, we can pass multiple middleware
     .get(getTeacher)
 
 teacherRouter.route('/:id')
